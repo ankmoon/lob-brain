@@ -1,0 +1,46 @@
+{
+  "name": "lob-brain",
+  "version": "1.0.0",
+  "description": "LOB Brain Core — λ-Decay memory engine for AI agents. SQLite-backed, Obsidian-synced, semantic-search ready.",
+  "type": "module",
+  "author": "ghostcreator",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "keywords": [
+    "mcp",
+    "ai",
+    "memory",
+    "lambda",
+    "brain",
+    "agent",
+    "obsidian",
+    "rag",
+    "embeddings",
+    "sqlite",
+    "decay"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ankmoon/lob-brain.git"
+  },
+  "homepage": "https://github.com/ankmoon/lob-brain#readme",
+  "bugs": {
+    "url": "https://github.com/ankmoon/lob-brain/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.8.0",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

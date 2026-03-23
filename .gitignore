@@ -1,0 +1,35 @@
+# Runtime data — never commit these
+brain.db
+brain.db-shm
+brain.db-wal
+*.db
+embed_stats.json
+access_rules.json
+
+# Local-only docs (not for public repo)
+HUONG-DAN-VI.md
+
+# Secrets & environment
+.env
+.env.local
+.env.*.local
+*.bat
+*.sh
+
+# Vault (personal Obsidian data)
+lob-vault/
+test-vault/
+
+# Dependencies & build output
+node_modules/
+dist/
+
+# Internal / personal docs
+Client Report.md
+system_context.md
+task.md
+
+# OS & editor
+.DS_Store
+Thumbs.db
+*.log
