@@ -12,8 +12,8 @@
 
 // --- Gemini Embedding API (Phase 6 upgrade) ---
 
-/** Gemini API endpoint for gemini-embedding-001 (replaces text-embedding-004, shutdown Jan 2026) */
-const GEMINI_EMBED_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-embedding-001:embedContent';
+/** Gemini API endpoint — gemini-embedding-001 on v1beta (text-embedding-004 shutdown Jan 2026) */
+const GEMINI_EMBED_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent';
 import { recordGeminiCall, recordFallback } from './embed_stats.js';
 
 /**
