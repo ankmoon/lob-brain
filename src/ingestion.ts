@@ -105,8 +105,12 @@ export async function ingestFile(
     db.store(entry);
 
     // Generate and store embedding — use Gemini if key available, fallback to TF-IDF
-    const embedding = await getEmbedding(chunk, geminiApiKey ?? null);
-    db.storeEmbedding(hash, embedToBuffer(embedding));
+    try {
+      const embedding = await getEmbedding(chunk, geminiApiKey ?? null);
+      db.storeEmbedding(hash, embedToBuffer(embedding));
+    } catch (embedErr) {
+      console.error('[lob-brain] Embedding failed in ingest (chunk saved without embedding):', (embedErr as Error).message);
+    }
 
     hashes.push(hash);
   }
