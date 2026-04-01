@@ -100,8 +100,21 @@ It includes:
 git clone https://github.com/ankmoon/lob-brain.git
 cd lob-brain
 npm install
-npm run build
 ```
+
+### 🔒 Security & Local Setup
+Sensitive proxy and access control rules are intentionally excluded from this public repository. Before building the project, you need to set up the local security files:
+
+1. **Rename the sample files in `src/`:**
+   ```bash
+   mv src/transport.sample.ts src/transport.ts
+   mv src/access_control.sample.ts src/access_control.ts
+   ```
+2. **Implement your custom logic:** Open the newly renamed files and add your authentication and routing rules if needed.
+3. **Build the project:**
+   ```bash
+   npm run build
+   ```
 
 ### Using the Core in Your Project
 
