@@ -24,8 +24,19 @@ import * as os from 'os';
 import { BrainDatabase } from './database.js';
 import { ObsidianVault } from './obsidian.js';
 import { createBrainServer } from './server.js';
-import { startStdioServer, startSSEServer } from './transport.js';
 import { type LambdaMemoryConfig, DEFAULT_CONFIG } from './types.js';
+
+let startStdioServer: any;
+let startSSEServer: any;
+try {
+  // @ts-ignore
+  const transport = await import('./transport.js');
+  startStdioServer = transport.startStdioServer;
+  startSSEServer = transport.startSSEServer;
+} catch (e) {
+  console.error('[lob-brain] ⚠️ ERROR: Missing transport.ts. Please rename src/transport.sample.ts to src/transport.ts and run "npm run build".');
+  process.exit(1);
+}
 import { decayScore, selectFidelity } from './decay.js';
 import { initEmbedStats } from './embed_stats.js';
 
@@ -100,11 +111,11 @@ if (useSSE) {
   // Pass a factory so each SSE connection gets a fresh McpServer instance
   const rulesPath = dbPath.replace(/brain\.db$/, 'access_rules.json');
   startSSEServer(
-    (allowedProjects) => createBrainServer(db, vault, config, allowedProjects),
+    (allowedProjects: any) => createBrainServer(db, vault, config, allowedProjects),
     port,
     apiKey,
     { db, vault, config, decayScore, selectFidelity, rulesPath, statsPath }
-  ).catch((err) => {
+  ).catch((err: any) => {
     console.error('[lob-brain] Fatal error:', err);
     process.exit(1);
   });
@@ -113,7 +124,7 @@ if (useSSE) {
   setInterval(() => {}, 1000); 
 } else {
   const server = createBrainServer(db, vault, config);
-  startStdioServer(server).catch((err) => {
+  startStdioServer(server).catch((err: any) => {
     console.error('[lob-brain] Fatal error:', err);
     process.exit(1);
   });
