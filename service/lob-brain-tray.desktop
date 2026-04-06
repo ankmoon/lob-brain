@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=LOB Brain
+Comment=Lambda Orchestrated Brain - AI Memory Server
+Exec=python3 /opt/lob-brain/service/tray-icon.pyw
+Icon=lob-brain
+Terminal=false
+Categories=Development;Utility;
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
