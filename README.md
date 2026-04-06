@@ -71,7 +71,30 @@ This repository contains the **open-source brain core library**:
 | `src/obsidian.ts` | Bidirectional sync with Obsidian vault (Markdown ↔ SQLite) |
 | `src/ingestion.ts` | Chunked ingestion of Markdown/TXT files for RAG |
 | `src/types.ts` | Shared TypeScript type definitions |
+| `service/` | **System Tray App** — cross-platform server manager (Windows/Linux/macOS) |
 | `tests/` | Unit tests for core logic (27 passing) |
+
+---
+
+## 🖥️ System Tray App (NEW)
+
+LOB Brain now includes a **cross-platform System Tray application** — like Docker Desktop for your AI memory:
+
+- **Launch tray → auto-starts server** as a managed child process
+- **Quit tray → stops server** and exits cleanly
+- **Green λ icon** = server healthy, **Red λ** = offline
+- **Right-click menu**: Open Dashboard · Restart Server · Quit
+- **Auto-crash recovery**: if the server crashes, it restarts automatically
+- **Singleton**: prevents duplicate instances
+
+### Quick Start
+
+```bash
+pip install pystray Pillow
+python service/tray-icon.pyw    # Windows: use pythonw for hidden console
+```
+
+See `service/` directory for platform-specific launchers (`.bat`, `.sh`, `.desktop`).
 
 ---
 
@@ -84,6 +107,7 @@ It includes:
 - SSE server for multi-machine / team setups
 - Web dashboard for memory management
 - Project-scoped API key access control
+- **System Tray App** for effortless server management
 
 **Want the full MCP integration? Contact me:**
 
