@@ -1,0 +1,24 @@
+# ============================================================
+# Codex CLI — LOB Brain MCP Configuration
+# Place this file at: ~/.codex/config.toml
+#
+# Docs: https://github.com/openai/codex
+# ============================================================
+
+# LOB Brain memory server (SSE transport)
+[[mcp_servers]]
+name = "lob-brain"
+type = "sse"
+url = "http://localhost:3020/sse"
+
+[mcp_servers.headers]
+x-api-key = "YOUR_API_KEY"
+
+# --- Alternative: stdio via mcp-remote bridge ---
+# Uncomment below and comment out the SSE config above
+# to use stdio transport (requires Node.js + npx):
+#
+# [[mcp_servers]]
+# name = "lob-brain"
+# type = "stdio"
+# command = ["npx", "-y", "mcp-remote", "http://localhost:3020/sse"]

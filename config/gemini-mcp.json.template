@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "lob-brain": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://localhost:3020/sse"],
+      "env": {}
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  // VS Code MCP Configuration for LOB Brain
+  // Place this file at: .vscode/mcp.json (project-level)
+  // Or add to User Settings > Extensions > MCP (global)
+  //
+  // Docs: https://code.visualstudio.com/docs/copilot/chat/mcp-servers
+  "servers": {
+    "lob-brain": {
+      "type": "sse",
+      "url": "http://localhost:3020/sse",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
